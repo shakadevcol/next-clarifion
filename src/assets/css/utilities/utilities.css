@@ -1,0 +1,11 @@
+@layer utilities {
+    .section {
+        padding-top: 50px;
+    }
+}
+
+@media screen(lg) {
+    .section {
+        padding-top: 0;
+    }
+}

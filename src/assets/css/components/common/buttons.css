@@ -1,0 +1,36 @@
+@layer components {
+    .btn {
+        border-radius: 50px;
+        display: inline-block;
+        font-family: theme("fontFamily.body");
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        padding: 16px 54px;
+        text-transform: uppercase;
+
+        &__icon {
+            display: inline-block;
+            margin-left: 16px;
+            margin-top: -3px;
+            min-width: 12px;
+            width: 12px;
+        }
+        &--primary {
+            background: #59ae43;
+            color: theme("colors.white");
+        }
+    }
+}
+
+@media screen(lg) {
+    .btn {
+        font-size: 20px;
+        padding: 16px 64px;
+        &__icon {
+            min-width: 16px;
+            width: 16px;
+        }
+    }
+}
