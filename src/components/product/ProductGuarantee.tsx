@@ -3,10 +3,7 @@ import "@/assets/css/components/product/product-guarantee.css";
 export default function ProductGuarantee() {
     return (
         <div className="product-guarantee">
-            <div className="product-guarantee__title">
-                {/* No thanks, I don’t want this. */}
-                Guarantee policy
-            </div>
+            <div className="product-guarantee__title">Guarantee policy</div>
             <div className="product-guarantee__info">
                 <img
                     src="/img/product-detail/guarantee/guarantee.png"

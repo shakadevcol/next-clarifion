@@ -7,7 +7,6 @@ export default function ProductShipping() {
                 <span className="product-shipping__description">
                     Free shipping
                 </span>
-                {/* <span className="product-shipping__vline"></span> */}
 
                 <span className="product-shipping__description">
                     <img src="/img/product-detail/lock.svg" alt="lock" />

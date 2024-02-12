@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import { stat } from "fs";
 
 export interface PaymentState {
     paymentStep: number;
@@ -8,7 +7,7 @@ export interface PaymentState {
 }
 
 const initialState: PaymentState = {
-    paymentStep: 2,
+    paymentStep: 1,
     steps: [
         {
             id: 1,
@@ -38,17 +37,17 @@ export const paymentSlice = createSlice({
     initialState,
     reducers: {
         updateStep: (state, action: PayloadAction<number>) => {
-            console.log("update step to: ", action.payload);
             state.paymentStep = action.payload;
-
             state.steps.forEach((step) => {
-                //console.log("step ": step);
                 if (step.id < state.paymentStep) {
                     step.state = "checked";
                 }
 
                 if (step.id === state.paymentStep) {
                     step.state = "current";
+                }
+                if (step.id > state.paymentStep) {
+                    step.state = "incompleted";
                 }
             });
         },

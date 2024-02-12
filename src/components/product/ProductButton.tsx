@@ -1,8 +1,14 @@
 import "@/assets/css/components/product/product-button.css";
 
-export default function ProductButton() {
+type Props = {
+    handleShowModal: () => void;
+};
+export default function ProductButton(props: Props) {
     return (
-        <button className="btn btn--primary product-button">
+        <button
+            onClick={props.handleShowModal}
+            className="btn btn--primary product-button"
+        >
             Pay with credit card
             <img
                 src="/img/common/button/right-arrow.svg"

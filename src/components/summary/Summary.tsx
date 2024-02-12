@@ -1,12 +1,44 @@
 import "@/assets/css/components/summary/summary.css";
 import ProductPreview from "@/components/product/ProductPreview";
 import ProductGuarantee from "@/components/product/ProductGuarantee";
+import axios, { AxiosError } from "axios";
 
-export default function Summary() {
+type Props = {
+    product: Product;
+    handleShowPaymentError: (message: string) => void;
+    handleResolveTransaction: (transaction: {
+        transactionId: string;
+        total: number;
+    }) => void;
+};
+
+export default function Summary(props: Props) {
+    const total = props.product.price + 15;
+
+    const handleMakePayment = async () => {
+        try {
+            const data = await axios.post(
+                "http://localhost:3000/api/payments",
+                []
+            );
+
+            props.handleResolveTransaction({
+                transactionId: data.data.transactionId,
+                total: total,
+            });
+        } catch (error) {
+            if (error instanceof AxiosError) {
+                props.handleShowPaymentError(error.response?.data.message);
+            } else {
+                console.log("Unexpected error ", error);
+            }
+        }
+    };
+
     return (
         <div className="summary">
-            <div className="grid grid-cols-2 gap-8">
-                <div>
+            <div className="grid md:grid-cols-2 gap-8">
+                <div className="order-last md:order-first">
                     <ProductPreview />
                     <ProductGuarantee />
                 </div>
@@ -15,19 +47,21 @@ export default function Summary() {
                         <h2 className="summary-detail__header-title">
                             Total Amount
                         </h2>
-                        <h3 className="summary-detail__header-price">$160</h3>
+                        <h3 className="summary-detail__header-price">
+                            ${total}
+                        </h3>
                     </div>
                     <h3 className="summary-detail__subtitle">Order Summary</h3>
                     <div className="summary-detail__card">
                         <div className="summary-detail__row-item">
-                            <span>Clarifion Slim</span>
-                            <span>$89</span>
+                            <span>{props.product.title}</span>
+                            <span>${props.product.price}</span>
                         </div>
                     </div>
                     <div className="summary-detail__card">
                         <div className="summary-detail__row-item">
                             <span>Subtotal</span>
-                            <span>$20</span>
+                            <span>${props.product.price}</span>
                         </div>
                         <div className="summary-detail__row-item">
                             <span>Shipping</span>
@@ -37,10 +71,13 @@ export default function Summary() {
                     <div className="summary-detail__card">
                         <div className="summary-detail__row-item">
                             <span>Total</span>
-                            <span>$20</span>
+                            <span>${total}</span>
                         </div>
                     </div>
-                    <button className="btn btn--primary product-button">
+                    <button
+                        className="btn btn--primary product-button"
+                        onClick={handleMakePayment}
+                    >
                         Make payment
                         <img
                             src="/img/common/button/right-arrow.svg"

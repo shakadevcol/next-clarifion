@@ -1,17 +1,18 @@
 "use client";
 import "@/assets/css/components/product/product-detail.css";
 import ProductInfo from "@/components/product/ProductInfo";
-import ProductPreview from "@/components/product/ProductPreview";
 import ProductFeatures from "@/components/product/ProductFeatures";
 import ProductSavings from "./ProductSavings";
 import ProductButton from "./ProductButton";
 import ProductShipping from "./ProductShipping";
-import ProductGuarantee from "./ProductGuarantee";
-import ProductComments from "./ProductComments";
-import { useAppDispatch, useAppSelector } from "@/hooks/reduxHooks";
+import { useAppSelector } from "@/hooks/reduxHooks";
 import { useEffect, useState } from "react";
 
-export default function ProductDetail() {
+type Props = {
+    handleShowModal: () => void;
+};
+
+export default function ProductDetail(props: Props) {
     const productState = useAppSelector((state) => state.productState);
     const [mounted, setMounted] = useState(false);
 
@@ -36,16 +37,16 @@ export default function ProductDetail() {
                             src="/img/product-detail/product.png"
                             alt="product"
                         />
-                        {/* <ProductComments /> */}
                     </div>
                     <div>
                         <ProductInfo product={productState.product} />
-                        {/* <ProductPreview /> */}
+
                         <ProductFeatures product={productState.product} />
                         {/* <ProductSavings /> */}
-                        <ProductButton />
+                        <ProductButton
+                            handleShowModal={props.handleShowModal}
+                        />
                         <ProductShipping />
-                        <ProductGuarantee />
                     </div>
                 </div>
             </div>
