@@ -1,0 +1,64 @@
+.footer {
+    background: #252f3d;
+    margin-top: 50px;
+
+    &__container {
+        align-items: center;
+        background: #252f3d;
+        color: theme("colors.white");
+
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        font-family: theme("fontFamily.body");
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        gap: 16px;
+        line-height: 140%; /* 16.8px */
+        padding: 20px;
+    }
+
+    &__info {
+        align-items: center;
+        display: flex;
+        gap: 12px;
+        padding: 8px 0px;
+    }
+    &__copyright {
+        text-transform: capitalize;
+    }
+    &__vline {
+        background: #fff;
+        height: 14px;
+        width: 1px;
+    }
+    &__contact {
+    }
+    &__encryption {
+        align-items: center;
+        display: flex;
+        gap: 16px;
+    }
+    &__encryption-image {
+        width: 13px;
+    }
+}
+
+@media screen(lg) {
+    .footer {
+        margin-top: 61px;
+
+        &__container {
+            flex-direction: row;
+            font-size: 16px;
+            justify-content: flex-end;
+            justify-content: space-between;
+            padding: 24px 0;
+        }
+
+        &__encryption-image {
+            width: 16px;
+        }
+    }
+}
