@@ -1,5 +1,5 @@
 import "@/assets/css/components/modal/modal.css";
-import { useForm } from "react-hook-form";
+import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import creditCardSchema from "@/validations/creditCardSchema";
 import creditCardType, {
