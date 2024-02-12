@@ -7,6 +7,12 @@ declare global {
         features: string[];
         image: string;
     };
+
+    type Steps = {
+        id: number;
+        title: string;
+        state: "checked" | "current" | "incompleted";
+    };
 }
 
 export {};
