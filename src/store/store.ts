@@ -1,6 +1,7 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import productSlice from "./productSlice";
 import paymentSlice from "./paymentSlice";
+import transactionSlice from "./transactionSlice";
 
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
@@ -14,6 +15,7 @@ const persistConfig = {
 const rootReducer = combineReducers({
     productState: productSlice,
     paymentState: paymentSlice,
+    transactionState: transactionSlice,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

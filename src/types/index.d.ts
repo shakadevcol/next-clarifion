@@ -13,6 +13,13 @@ declare global {
         title: string;
         state: "checked" | "current" | "incompleted";
     };
+
+    type Transaction = {
+        paymentMethod: string | null;
+        hiddenCardNumber: string | null;
+        transactionId: string | null;
+        total: number;
+    };
 }
 
 export {};
