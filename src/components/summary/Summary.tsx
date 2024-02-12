@@ -2,6 +2,7 @@ import "@/assets/css/components/summary/summary.css";
 import ProductPreview from "@/components/product/ProductPreview";
 import ProductGuarantee from "@/components/product/ProductGuarantee";
 import axios, { AxiosError } from "axios";
+import api from "@/services/api";
 
 type Props = {
     product: Product;
@@ -17,10 +18,7 @@ export default function Summary(props: Props) {
 
     const handleMakePayment = async () => {
         try {
-            const data = await axios.post(
-                "http://localhost:3000/api/payments",
-                []
-            );
+            const data = await api.post("payments", []);
 
             props.handleResolveTransaction({
                 transactionId: data.data.transactionId,
