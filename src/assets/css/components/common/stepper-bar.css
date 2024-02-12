@@ -1,0 +1,100 @@
+.stepper {
+    margin: 24px 0 24px 0;
+
+    &__items {
+        display: flex;
+        justify-content: space-between;
+    }
+    &__item {
+        align-items: center;
+        color: theme("colors.black");
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        font-family: theme("fontFamily.body");
+        font-size: 12px;
+        font-weight: 400;
+        letter-spacing: 0em;
+        line-height: 13px;
+
+        &--current {
+            font-weight: 800;
+        }
+    }
+    &__item-number {
+        display: none;
+    }
+    &__item-title {
+    }
+    &__circle {
+        align-items: center;
+        border-radius: 50%;
+        display: flex;
+
+        font-size: 14px;
+        font-weight: 400;
+        height: 20px;
+        justify-content: center;
+        letter-spacing: 0em;
+        line-height: 15px;
+        margin-bottom: 8px;
+        text-align: left;
+        width: 20px;
+
+        &--checked {
+            background-color: #85bf55;
+        }
+        &--current {
+            background-color: #2c7ef8;
+            color: theme("colors.white");
+        }
+        &--incompleted {
+            background-color: theme("colors.white");
+            border: 1px solid #2c7ef8;
+        }
+    }
+
+    &__icon {
+        height: 8px;
+        width: 8px;
+    }
+}
+
+@media screen(xl) {
+    .stepper {
+        &__items {
+            margin-top: 50px;
+        }
+        &__item {
+            flex-direction: row;
+            font-size: 20px;
+            font-weight: 400;
+            letter-spacing: 0em;
+            line-height: 22px;
+            text-align: left;
+
+            &--current {
+                font-weight: 800;
+            }
+        }
+
+        &__item-number {
+            display: block;
+        }
+
+        &__circle {
+            font-size: 20px;
+            font-weight: 400;
+            height: 40px;
+            letter-spacing: 0em;
+            line-height: 22px;
+            margin-bottom: 0;
+            margin-right: 20px;
+            width: 40px;
+        }
+        &__icon {
+            height: 16px;
+            width: 16px;
+        }
+    }
+}
