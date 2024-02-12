@@ -22,17 +22,17 @@ const config: Config = {
         container: {
             padding: {
                 DEFAULT: "1.25rem",
-                sm: "0",
-                lg: "0",
-                xl: "0",
+                sm: "1.25rem",
+                lg: "1.25rem",
+                xl: "1.25rem",
                 "2xl": "0",
             },
         },
         screens: {
             sm: "640px",
             md: "768px",
-            lg: "992px", //1245px
-            xl: "1245px", //1280px
+            lg: "1245px",
+            xl: "1280px",
             "2xl": "1536px",
         },
     },

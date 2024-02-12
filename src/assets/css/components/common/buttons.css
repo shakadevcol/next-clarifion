@@ -1,6 +1,7 @@
 @layer components {
     .btn {
         border-radius: 50px;
+        cursor: pointer;
         display: inline-block;
         font-family: theme("fontFamily.body");
         font-size: 14px;
@@ -19,6 +20,10 @@
         }
         &--primary {
             background: #59ae43;
+            color: theme("colors.white");
+        }
+        &--secondary {
+            background-color: #2c7ef8;
             color: theme("colors.white");
         }
     }

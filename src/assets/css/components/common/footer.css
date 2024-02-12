@@ -16,7 +16,8 @@
         font-weight: 400;
         gap: 16px;
         line-height: 140%; /* 16.8px */
-        padding: 20px;
+        padding-bottom: 20px;
+        padding-top: 20px;
     }
 
     &__info {
@@ -54,7 +55,8 @@
             font-size: 16px;
             justify-content: flex-end;
             justify-content: space-between;
-            padding: 24px 0;
+            padding-bottom: 24px;
+            padding-top: 24px;
         }
 
         &__encryption-image {

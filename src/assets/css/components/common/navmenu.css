@@ -2,6 +2,7 @@
     align-items: center;
     display: flex;
     justify-content: space-between;
+    padding-top: 20px;
 
     &__logo-img {
         width: 106.67px;
@@ -14,7 +15,7 @@
 
 @media screen(lg) {
     .navmenu {
-        padding: 30px 0 30px 0;
+        /* padding: 30px 0 30px 0; */
         &__logo-img {
             width: auto;
         }
@@ -22,5 +23,10 @@
         &__sponsors-img {
             width: auto;
         }
+    }
+}
+@media screen(2xl) {
+    .navmenu {
+        padding: 30px 0 30px 0;
     }
 }

@@ -3,12 +3,11 @@
 
     &__items {
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
     }
     &__item {
         align-items: center;
         color: theme("colors.black");
-        cursor: pointer;
         display: flex;
         flex-direction: column;
         font-family: theme("fontFamily.body");
@@ -60,7 +59,7 @@
     }
 }
 
-@media screen(xl) {
+@media screen(lg) {
     .stepper {
         &__items {
             margin-top: 50px;
