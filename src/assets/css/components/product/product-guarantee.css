@@ -1,0 +1,56 @@
+.product-guarantee {
+    font-family: theme("fontFamily.body");
+    padding: 12px 0 0 0;
+
+    &__title {
+        color: #f82c2c;
+
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        padding-bottom: 24px;
+        text-align: center;
+        text-decoration-line: underline;
+        text-transform: uppercase;
+    }
+    &__info {
+        display: flex;
+        gap: 16px;
+    }
+    &__image {
+        height: 48px;
+        min-width: 48px;
+        width: 48px;
+    }
+    &__description {
+        color: #4d5254;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 140%;
+
+        &--accent {
+            font-weight: 700;
+        }
+    }
+}
+@media screen(lg) {
+    .product-guarantee {
+        padding: 20px 0 0 0;
+
+        &__title {
+            font-size: 18px;
+        }
+
+        &__image {
+            height: 88px;
+            min-width: 88px;
+            width: 88px;
+        }
+
+        &__description {
+            font-size: 16px;
+        }
+    }
+}

@@ -1,0 +1,10 @@
+.product-button {
+    margin: 32px 0 0 0;
+    width: 100%;
+}
+
+@media screen(lg) {
+    .product-button {
+        /* margin: 24px 0 12px 0; */
+    }
+}

@@ -1,0 +1,46 @@
+.product-detail {
+    &__container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__title-mobile {
+        color: theme("colors.black");
+        font-family: theme("fontFamily.body");
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 140%; /* 44.8px */
+        padding-bottom: 24px;
+        text-align: center;
+        text-transform: capitalize;
+
+        &--accent {
+            color: #2c7ef8;
+        }
+    }
+}
+
+@media screen(lg) {
+    .product-detail {
+        background: #fafafa;
+        border-radius: 10px;
+        padding: 40px;
+
+        &__container {
+            display: flex;
+            flex-direction: row;
+        }
+        &__image {
+            margin-right: 40px;
+            /* max-width: 575px; */
+            img {
+                max-width: 575px;
+            }
+        }
+
+        &__title-mobile {
+            display: none;
+        }
+    }
+}

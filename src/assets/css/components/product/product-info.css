@@ -1,0 +1,46 @@
+.product-info {
+    &__title {
+        color: theme("colors.black");
+        display: none;
+        font-family: theme("fontFamily.body");
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 140%; /* 44.8px */
+        margin-top: -10px;
+        text-transform: capitalize;
+
+        &--accent {
+            color: #2c7ef8;
+        }
+    }
+    &__description {
+        color: #4d5254;
+        flex-grow: 1;
+        font-family: theme("fontFamily.body");
+
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+
+        line-height: 160%;
+        padding: 24px 0 0 0;
+        p {
+            margin-bottom: 12px;
+        }
+    }
+}
+
+@media screen(lg) {
+    .product-info {
+        &__title {
+            display: block;
+            font-size: 32px;
+        }
+
+        &__description {
+            font-size: 16px;
+            padding: 16px 0 24px 0;
+        }
+    }
+}

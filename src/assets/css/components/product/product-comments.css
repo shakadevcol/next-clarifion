@@ -1,0 +1,50 @@
+.product-comments {
+    display: none;
+}
+@media screen(lg) {
+    .product-comments {
+        background: #fff;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        font-family: theme("fontFamily.body");
+        gap: 18px;
+        margin-top: 24px;
+        padding: 24px;
+
+        &__heading {
+            align-items: center;
+            display: flex;
+            gap: 13px;
+        }
+
+        &__heading-info {
+        }
+        &__detail {
+            align-items: center;
+            display: inline-flex;
+            gap: 10px;
+        }
+        &__name {
+            color: #333;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 100%; /* 14px */
+        }
+
+        &__stars {
+            height: 11.946px;
+        }
+        &__verified {
+            color: #5bb59a;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 120%; /* 14.4px */
+        }
+
+        &__description {
+        }
+    }
+}
