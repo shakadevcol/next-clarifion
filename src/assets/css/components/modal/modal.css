@@ -1,0 +1,54 @@
+.modal {
+    background-color: rgba(0, 0, 0, 0.4);
+    height: 100%;
+    left: 0;
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+
+    &__content {
+        background-color: #fefefe;
+        border: 1px solid #888;
+        border-radius: 10px;
+        margin: 1% auto;
+        padding: 20px;
+        padding: 40px;
+        width: 90%;
+    }
+
+    &__header {
+        position: relative;
+    }
+    &__header-title {
+        font-size: 24px;
+    }
+    &__close {
+        color: #aaa;
+        font-size: 38px;
+        font-weight: bold;
+        position: absolute;
+        right: -30px;
+        top: -50px;
+
+        &:hover,
+        &:focus {
+            color: black;
+            cursor: pointer;
+            text-decoration: none;
+        }
+    }
+
+    &__body {
+        margin-top: 20px;
+    }
+}
+
+@media screen(lg) {
+    .modal {
+        &__content {
+            width: 40%;
+        }
+    }
+}
