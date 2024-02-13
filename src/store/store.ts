@@ -9,7 +9,7 @@ import storage from "redux-persist/lib/storage";
 const persistConfig = {
     key: "root",
     storage: storage,
-    whitelist: [],
+    whitelist: ["paymentState", "transactionState"],
 };
 
 const rootReducer = combineReducers({
@@ -26,6 +26,7 @@ export const store = configureStore({
         getDefaultMiddleware({
             serializableCheck: false,
         }),
+    devTools: process.env.node_env !== "production",
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
