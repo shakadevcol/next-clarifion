@@ -26,6 +26,10 @@
             background-color: #2c7ef8;
             color: theme("colors.white");
         }
+        &--dark {
+            background-color: #757575;
+            color: theme("colors.white");
+        }
     }
 }
 
