@@ -2,6 +2,7 @@ import ProductComments from "@/components/product/ProductComments";
 
 type Props = {
     transaction: Transaction;
+    handleKeepBuying: () => void;
 };
 
 export default function Confirmation(props: Props) {
@@ -59,6 +60,12 @@ export default function Confirmation(props: Props) {
                             alt="icon"
                             className="btn__icon"
                         />
+                    </button>
+                    <button
+                        className="btn btn--dark product-button"
+                        onClick={props.handleKeepBuying}
+                    >
+                        Keep buying
                     </button>
                 </div>
             </div>

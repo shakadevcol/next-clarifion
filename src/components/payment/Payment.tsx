@@ -8,7 +8,7 @@ import Modal from "@/components/modal/Modal";
 import { Toaster, toast } from "sonner";
 import { useAppDispatch, useAppSelector } from "@/hooks/reduxHooks";
 import { updateStep } from "@/store/paymentSlice";
-import { setTransaction } from "@/store/transactionSlice";
+import { setTransaction, resetTransaction } from "@/store/transactionSlice";
 import { useEffect, useState } from "react";
 
 export default function Payment() {
@@ -18,6 +18,15 @@ export default function Payment() {
     const dispatch = useAppDispatch();
 
     const [showModal, setShowModal] = useState(false);
+    const [isMounted, setIsMounted] = useState(false);
+
+    useEffect(() => {
+        setIsMounted(true);
+
+        return () => {
+            setIsMounted(false);
+        };
+    }, []);
 
     useEffect(() => {
         if (paymentState.paymentStep === 2) {
@@ -68,14 +77,20 @@ export default function Payment() {
         dispatch(updateStep(4));
     };
 
+    const handleKeepBuying = () => {
+        dispatch(updateStep(1));
+        dispatch(resetTransaction());
+    };
+
     return (
         <div className="section container mx-auto">
-            <StepperBar steps={paymentState.steps} />
-            {(paymentState.paymentStep === 1 ||
-                paymentState.paymentStep === 2) && (
-                <ProductDetail handleShowModal={handleShowModal} />
-            )}
-            {paymentState.paymentStep === 3 && (
+            {isMounted && <StepperBar steps={paymentState.steps} />}
+            {isMounted &&
+                (paymentState.paymentStep === 1 ||
+                    paymentState.paymentStep === 2) && (
+                    <ProductDetail handleShowModal={handleShowModal} />
+                )}
+            {isMounted && paymentState.paymentStep === 3 && (
                 <Summary
                     product={productState.product}
                     handleShowPaymentError={handleShowPaymentError}
@@ -83,8 +98,11 @@ export default function Payment() {
                 />
             )}
 
-            {paymentState.paymentStep === 4 && (
-                <Confirmation transaction={transactionState.transaction} />
+            {isMounted && paymentState.paymentStep === 4 && (
+                <Confirmation
+                    transaction={transactionState.transaction}
+                    handleKeepBuying={handleKeepBuying}
+                />
             )}
 
             <Modal
