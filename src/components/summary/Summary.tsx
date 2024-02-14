@@ -1,7 +1,7 @@
 import "@/assets/css/components/summary/summary.css";
 import ProductPreview from "@/components/product/ProductPreview";
 import ProductGuarantee from "@/components/product/ProductGuarantee";
-import axios, { AxiosError } from "axios";
+import { AxiosError } from "axios";
 import api from "@/services/api";
 
 type Props = {
@@ -27,8 +27,6 @@ export default function Summary(props: Props) {
         } catch (error) {
             if (error instanceof AxiosError) {
                 props.handleShowPaymentError(error.response?.data.message);
-            } else {
-                console.log("Unexpected error ", error);
             }
         }
     };
@@ -45,7 +43,10 @@ export default function Summary(props: Props) {
                         <h2 className="summary-detail__header-title">
                             Total Amount
                         </h2>
-                        <h3 className="summary-detail__header-price">
+                        <h3
+                            className="summary-detail__header-price"
+                            data-testid="totalPriceTitle"
+                        >
                             ${total}
                         </h3>
                     </div>
@@ -53,13 +54,17 @@ export default function Summary(props: Props) {
                     <div className="summary-detail__card">
                         <div className="summary-detail__row-item">
                             <span>{props.product.title}</span>
-                            <span>${props.product.price}</span>
+                            <span data-testid="productPrice">
+                                ${props.product.price}
+                            </span>
                         </div>
                     </div>
                     <div className="summary-detail__card">
                         <div className="summary-detail__row-item">
                             <span>Subtotal</span>
-                            <span>${props.product.price}</span>
+                            <span data-testid="subTotalPrice">
+                                ${props.product.price}
+                            </span>
                         </div>
                         <div className="summary-detail__row-item">
                             <span>Shipping</span>
@@ -69,7 +74,7 @@ export default function Summary(props: Props) {
                     <div className="summary-detail__card">
                         <div className="summary-detail__row-item">
                             <span>Total</span>
-                            <span>${total}</span>
+                            <span data-testid="totalPrice">${total}</span>
                         </div>
                     </div>
                     <button

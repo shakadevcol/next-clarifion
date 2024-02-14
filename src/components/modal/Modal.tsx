@@ -75,6 +75,7 @@ export default function Modal(props: Props) {
                         <span
                             className="modal__close"
                             onClick={props.handleCloseModal}
+                            data-testid="closeBtn"
                         >
                             &times;
                         </span>
@@ -98,9 +99,14 @@ export default function Modal(props: Props) {
                                     id="cardNumber"
                                     {...register("cardNumber")}
                                 />
-                                <p className="form__error">
-                                    {errors.cardNumber?.message}
-                                </p>
+                                {errors.cardNumber && (
+                                    <p
+                                        className="form__error"
+                                        role="error-message"
+                                    >
+                                        {errors.cardNumber.message}
+                                    </p>
+                                )}
                             </div>
                             <div className="form__group">
                                 <label className="form__label" htmlFor="owner">
@@ -112,9 +118,14 @@ export default function Modal(props: Props) {
                                     id="owner"
                                     {...register("owner")}
                                 />
-                                <p className="form__error">
-                                    {errors.owner?.message}
-                                </p>
+                                {errors.owner && (
+                                    <p
+                                        className="form__error"
+                                        role="error-message"
+                                    >
+                                        {errors.owner.message}
+                                    </p>
+                                )}
                             </div>
                             <div className="form__group-inline">
                                 <div className="form__group">
@@ -132,9 +143,14 @@ export default function Modal(props: Props) {
                                             valueAsNumber: true,
                                         })}
                                     />
-                                    <p className="form__error">
-                                        {errors.expirationMonth?.message}
-                                    </p>
+                                    {errors.expirationMonth && (
+                                        <p
+                                            className="form__error"
+                                            role="error-message"
+                                        >
+                                            {errors.expirationMonth.message}
+                                        </p>
+                                    )}
                                 </div>
                                 <div className="form__group">
                                     <label
@@ -152,9 +168,14 @@ export default function Modal(props: Props) {
                                         })}
                                         maxLength={2}
                                     />
-                                    <p className="form__error">
-                                        {errors.expirationYear?.message}
-                                    </p>
+                                    {errors.expirationYear && (
+                                        <p
+                                            className="form__error"
+                                            role="error-message"
+                                        >
+                                            {errors.expirationYear.message}
+                                        </p>
+                                    )}
                                 </div>
                             </div>
 
@@ -168,10 +189,16 @@ export default function Modal(props: Props) {
                                     id="cvc"
                                     {...register("cvc")}
                                     maxLength={3}
+                                    data-testid="cvc"
                                 />
-                                <p className="form__error">
-                                    {errors.cvc?.message}
-                                </p>
+                                {errors.cvc && (
+                                    <p
+                                        className="form__error"
+                                        role="error-message"
+                                    >
+                                        {errors.cvc.message}
+                                    </p>
+                                )}
                             </div>
                             <input
                                 type="submit"

@@ -17,7 +17,7 @@ export default function StepperBar(props: Props) {
                                 {step.state !== "incompleted" && (
                                     <img
                                         src="/img/common/stepper/check-mark.svg"
-                                        alt="checked"
+                                        alt={step.state}
                                         className="stepper__icon"
                                     />
                                 )}
