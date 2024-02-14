@@ -19,11 +19,11 @@ The application validates if the credit card number is valid. To make the proces
 
 -   The app recover the progress made by the client in case of refresh.
 
--   In the final step you can start again using the "keep shopping" button.
+-   In the final step you can start again using the "keep buying" button.
 
 ## Getting Started
 
-1. Duplicate ".env.example" file and rename it as .env
+1. Duplicate ".env.example" file and rename it as "".env"
 
 2. Run the development server:
 
