@@ -1,4 +1,4 @@
--   [![cov](https://<shakadevcol>.github.io/<next-clarifion>/badges/coverage.svg)](https://github.com/<shakadevcol>/<next-clarifion>/actions)
+![check-code-coverage](https://img.shields.io/badge/code--coverage-97.57%25-brightgreen)
 
 This is the [Next Clarifion](https://nextjs.org/) project.
 

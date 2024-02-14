@@ -36,6 +36,7 @@
         "@types/react-dom": "^18",
         "@types/validator": "^13.11.9",
         "autoprefixer": "^10.0.1",
+        "check-code-coverage": "^1.10.5",
         "constructs": "^10.3.0",
         "eslint": "^8",
         "eslint-config-next": "14.1.0",
