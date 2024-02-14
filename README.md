@@ -12,7 +12,7 @@ The application validates if the credit card number is valid. To make the proces
 | Visa             | 4111111111111111   | 2026                                                   | Any number |
 | American Express | 378282246310005    | 2027                                                   | Any number |
 
-####Notes:
+**Notes:**
 
 -   This project uses Next JS - version 14.1.0, so make sure you are using Node.js 18.17 or later.
 -   The app simulates a random call to the backend API (successful and failed), so sometimes a error message is displayed and sometimes a confirmation screen.
