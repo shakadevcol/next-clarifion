@@ -2,7 +2,6 @@
 import "@/assets/css/components/product/product-detail.css";
 import ProductInfo from "@/components/product/ProductInfo";
 import ProductFeatures from "@/components/product/ProductFeatures";
-import ProductSavings from "./ProductSavings";
 import ProductButton from "./ProductButton";
 import ProductShipping from "./ProductShipping";
 import { useAppSelector } from "@/hooks/reduxHooks";
@@ -31,7 +30,7 @@ export default function ProductDetail(props: Props) {
                     <ProductInfo product={productState.product} />
 
                     <ProductFeatures product={productState.product} />
-                    {/* <ProductSavings /> */}
+
                     <ProductButton handleShowModal={props.handleShowModal} />
                     <ProductShipping />
                 </div>
