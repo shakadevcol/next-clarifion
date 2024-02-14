@@ -1,3 +1,5 @@
+-   [![cov](https://<shakadevcol>.github.io/<next-clarifion>/badges/coverage.svg)](https://github.com/<shakadevcol>/<next-clarifion>/actions)
+
 This is the [Next Clarifion](https://nextjs.org/) project.
 
 ## Getting Started
