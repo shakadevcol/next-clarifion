@@ -2,11 +2,11 @@ import "@testing-library/jest-dom";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import Modal from "./Modal";
 
-describe("Modal", () => {
-    it("shows info", () => {
-        const handleCloseModal = jest.fn();
-        const handlePrepareTransaction = jest.fn();
+const handleCloseModal = jest.fn();
+const handlePrepareTransaction = jest.fn();
 
+describe("Modal", () => {
+    beforeEach(() => {
         render(
             <Modal
                 showModal={true}
@@ -14,23 +14,14 @@ describe("Modal", () => {
                 handlePrepareTransaction={handlePrepareTransaction}
             />
         );
+    });
 
+    it("shows info", () => {
         const title = screen.getByText("Credit card information");
         expect(title).toBeInTheDocument();
     });
 
     it("can trigger close modal", async () => {
-        const handleCloseModal = jest.fn();
-        const handlePrepareTransaction = jest.fn();
-
-        render(
-            <Modal
-                showModal={true}
-                handleCloseModal={handleCloseModal}
-                handlePrepareTransaction={handlePrepareTransaction}
-            />
-        );
-
         const closeButton = screen.getByTestId("closeBtn");
         await waitFor(() => {
             fireEvent.click(closeButton);
@@ -40,17 +31,6 @@ describe("Modal", () => {
     });
 
     it("shows errors on submitted empty fields", async () => {
-        const handleCloseModal = jest.fn();
-        const handlePrepareTransaction = jest.fn();
-
-        render(
-            <Modal
-                showModal={true}
-                handleCloseModal={handleCloseModal}
-                handlePrepareTransaction={handlePrepareTransaction}
-            />
-        );
-
         const validateBtn = screen.getByRole("button", {
             name: "Validate card",
         });
@@ -63,17 +43,6 @@ describe("Modal", () => {
     });
 
     it("can submit form with valid input fields", async () => {
-        const handleCloseModal = jest.fn();
-        const handlePrepareTransaction = jest.fn();
-
-        render(
-            <Modal
-                showModal={true}
-                handleCloseModal={handleCloseModal}
-                handlePrepareTransaction={handlePrepareTransaction}
-            />
-        );
-
         const cardNumber = screen.getByRole("textbox", { name: "Card number" });
         await waitFor(() => {
             fireEvent.change(cardNumber, {

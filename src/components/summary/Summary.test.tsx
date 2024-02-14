@@ -4,19 +4,20 @@ import Summary from "./Summary";
 import api from "@/services/api";
 import { AxiosError } from "axios";
 
-describe("Summary", () => {
-    it("renders summary info", async () => {
-        const product: Product = {
-            id: 1,
-            title: "clarifion slim",
-            price: 84,
-            description: "lorem ipsum",
-            features: [],
-            image: "product.png",
-        };
-        const handleShowPaymentError = jest.fn();
-        const handleResolveTransaction = jest.fn();
+const product: Product = {
+    id: 1,
+    title: "clarifion slim",
+    price: 84,
+    description: "lorem ipsum",
+    features: [],
+    image: "product.png",
+};
 
+const handleShowPaymentError = jest.fn();
+const handleResolveTransaction = jest.fn();
+
+describe("Summary", () => {
+    beforeEach(() => {
         render(
             <Summary
                 product={product}
@@ -24,7 +25,9 @@ describe("Summary", () => {
                 handleResolveTransaction={handleResolveTransaction}
             />
         );
+    });
 
+    it("renders summary info", async () => {
         const shippingPrice = 15;
         const totalPriceValue = shippingPrice + product.price;
 
@@ -45,25 +48,6 @@ describe("Summary", () => {
     });
 
     it("can trigger make payment", async () => {
-        const product: Product = {
-            id: 1,
-            title: "clarifion slim",
-            price: 84,
-            description: "lorem ipsum",
-            features: [],
-            image: "product.png",
-        };
-        const handleShowPaymentError = jest.fn();
-        const handleResolveTransaction = jest.fn();
-
-        render(
-            <Summary
-                product={product}
-                handleShowPaymentError={handleShowPaymentError}
-                handleResolveTransaction={handleResolveTransaction}
-            />
-        );
-
         const buttonMakePayment = screen.getByText(/Make payment/i);
 
         const spyApi = jest.spyOn(api, "post");
@@ -87,25 +71,6 @@ describe("Summary", () => {
     });
 
     it("can trigger handleShowPaymentError when request returns error", async () => {
-        const product: Product = {
-            id: 1,
-            title: "clarifion slim",
-            price: 84,
-            description: "lorem ipsum",
-            features: [],
-            image: "product.png",
-        };
-        const handleShowPaymentError = jest.fn();
-        const handleResolveTransaction = jest.fn();
-
-        render(
-            <Summary
-                product={product}
-                handleShowPaymentError={handleShowPaymentError}
-                handleResolveTransaction={handleResolveTransaction}
-            />
-        );
-
         const buttonMakePayment = screen.getByText(/Make payment/i);
 
         const spyApi = jest.spyOn(api, "post");
