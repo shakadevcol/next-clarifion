@@ -9,19 +9,19 @@ const creditCardSchema = z.object({
         message: "Must be a valid name",
     }),
     expirationMonth: z
-        .number({ invalid_type_error: "Invalid number" })
+        .number({ invalid_type_error: "Invalid" })
         .nonnegative({
-            message: "Must be a positive number",
+            message: "Invalid",
         })
-        .gt(0)
-        .lte(12),
+        .gt(0, { message: "Invalid" })
+        .lte(12, { message: "Invalid" }),
     expirationYear: z
-        .number({ invalid_type_error: "Invalid number" })
+        .number({ invalid_type_error: "Invalid" })
         .nonnegative({
-            message: "Must be a positive number",
+            message: "Invalid",
         })
-        .gte(new Date().getFullYear())
-        .lte(new Date().getFullYear() + 5),
+        .gte(new Date().getFullYear(), { message: "Invalid" })
+        .lte(new Date().getFullYear() + 5, { message: "Invalid" }),
     /* cvc: z
         .number({ invalid_type_error: "Invalid number" })
         .nonnegative({
